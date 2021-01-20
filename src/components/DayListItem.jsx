@@ -16,7 +16,7 @@ export default function DayListItem(props) {
     } else {
       return `${props.spots} ${pluralStr}`;
     }
-    
+
   };
 
   const liClass = classNames('li', {

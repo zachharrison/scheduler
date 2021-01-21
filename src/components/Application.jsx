@@ -30,6 +30,7 @@ export default function Application(props) {
   }, []);
 
   const dailyAppointments = getAppointmentsForDay(state, state.day)
+  const lastAppt = <Appointment key="last" time="5pm" />;
 
   return (
     <main className="layout">
@@ -58,8 +59,9 @@ export default function Application(props) {
                       {...appointment} 
                     />
           })
-
+          
         }
+        {lastAppt}
       </section>
     </main>
   );

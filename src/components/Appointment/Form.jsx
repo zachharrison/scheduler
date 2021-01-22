@@ -3,11 +3,10 @@ import Button from 'components/Button'
 import InterviewerList from 'components/InterviewerList'
 
 export default function Form(props) {
-
   const [name, setName] = useState("");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
-  console.log(props);
+  console.log('props from the form =====>', props);
 
   const reset = () => {
     setName('');
@@ -37,9 +36,6 @@ export default function Form(props) {
             placeholder="Enter Student Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            /*
-              This must be a controlled component
-            */
           />
         </form>
         <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer}/>

@@ -25,8 +25,6 @@ export default function InterviewerList(props) {
       <ul className="interviewers__list">
         {
           props.interviewers.map(interviewer => {
-
-            // console.log(props)
         
             return <InterviewerListItem
               key={interviewer.id}

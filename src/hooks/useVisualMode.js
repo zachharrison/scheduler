@@ -36,7 +36,7 @@ export default function useVisualMode (initial, replace = false) {
   /*
     CURRENT MODE IS ON THE TOP OF THE CALL STACK
     SO WE WANT TO RETURN THE LAST VALUE 
-    FRO THE HISTORY ARRAY
+    FROM THE HISTORY ARRAY
   */
   return { mode: history.slice(-1)[0], transition, back};
 }

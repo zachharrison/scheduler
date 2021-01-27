@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import 'components/Appointment/styles.scss';
 import Header from 'components/Appointment/Header';
 import Show from 'components/Appointment/Show';
@@ -19,7 +19,7 @@ const EDIT = "EDIT";
 const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
-export default function Appointment(props) {
+const Appointment = (props) => {
 
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
@@ -33,6 +33,7 @@ export default function Appointment(props) {
     };
 
     transition(SAVING);
+
     props
     .bookInterview(props.id, interview)
     .then(() => transition(SHOW))
@@ -136,4 +137,6 @@ export default function Appointment(props) {
 
   );
 
-}
+};
+
+export default Appointment

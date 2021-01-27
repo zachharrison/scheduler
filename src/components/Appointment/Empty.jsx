@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Empty(props) {
+const Empty = (props) => {
 
   return (
 
@@ -15,4 +15,6 @@ export default function Empty(props) {
 
   );
 
-}
+};
+
+export default Empty

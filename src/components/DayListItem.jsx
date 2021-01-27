@@ -2,7 +2,7 @@ import React from "react";
 import 'components/DayListItem.scss';
 import classNames from 'classnames';
 
-export default function DayListItem(props) {
+const DayListItem = (props) => {
 
   const formatSpots = (props) => {
 
@@ -38,16 +38,6 @@ export default function DayListItem(props) {
 
   );
 
-}
+};
 
-/* 
-  name:String the name of the day
-  spots:Number the number of spots remaining
-  selected:Boolean true or false declaring that this day is selected
-  setDay:Function accepts the name of the day eg. "Monday", "Tuesday"
-
-
-  day-list__item all the time
-  day-list__item--selected class name if props.selected is true
-  day-list__item--full class name if props.spots is 0.
-*/
+export default DayListItem

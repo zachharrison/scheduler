@@ -2,12 +2,17 @@ const getAppointmentsForDay = (state, DAY) => {
 
   const result = [];
 
+  // ERROR HANDLING
   if (state.days.every(day => day.name !== DAY)) return result;
   if (state.days.length < 1) return result;
 
+  // FILTER ALL APPOINTMENTS FOR A SPECIFIC DAY 
   const daysAppointments = state.days.filter(day => day.name === DAY)[0].appointments;
+
+  // GET ALL APPOINTMENTS IN AN ARRAY FROM STATE OBJECT
   const appointmentsArr = Object.values(state.appointments)
   
+  // LOOP THROUGH AND PUSH TO RESULT ARRAY IF APPOINTMENT ID'S MATCH
   for (const app of daysAppointments) {
     for (const appObj of appointmentsArr) {
       if (app === appObj.id) {
@@ -15,7 +20,7 @@ const getAppointmentsForDay = (state, DAY) => {
       } 
     }
   }
-  
+
   return result;
 
 };
@@ -26,6 +31,10 @@ const getInterview = (state, interview) => {
   const result = {};
   const interviewers = Object.values(state.interviewers);
 
+  /* 
+    IF INTERVIEWER IS GIVING THE INTERVIEW THAT IS PASSED IN, CREATE AN OBJECT WITH STUDENT AND INTERVIEWER PROPERTIES.
+    OTHERWISE RETURN NULL
+  */
   for (const interviewer of interviewers) {
     if (interview.interviewer === interviewer.id) {
       result.student = interview.student;
@@ -42,12 +51,17 @@ const getInterviewersForDay = (state, DAY) => {
 
   const result = [];
 
+  // ERROR HANDLING
   if (state.days.every(day => day.name !== DAY)) return result;
   if (state.days.length < 1) return result;
 
+  // FILTER ALL INTERVIEWERS FOR A SPECIFIC DAY 
   const daysInterviewers = state.days.filter(day => day.name === DAY)[0].interviewers;
+
+  // GET ALL INTERVIEWERS IN AN ARRAY FROM STATE OBJECT
   const interviewersArr = Object.values(state.interviewers)
   
+  // LOOP THROUGH AND PUSH TO RESULT ARRAY IF INTERVIEWER ID'S MATCH
   for (const interviewer of daysInterviewers) {
     for (const interviewerObj of interviewersArr) {
       if (interviewer === interviewerObj.id) {
@@ -55,109 +69,10 @@ const getInterviewersForDay = (state, DAY) => {
       } 
     }
   }
-  // console.log(result)
+
   return result;
 
 };
-
-const state = {
-
-  days: [
-    {
-      id: 1,
-      name: "Monday",
-      appointments: [1, 2, 3],
-      interviewers: [2]
-    },
-    {
-      id: 2,
-      name: "Tuesday",
-      appointments: [4, 5, 6],
-      interviewers: [1, 2]
-    }
-  ],
-
-  appointments: {
-    "1": { id: 1, time: "12pm", interview: null },
-    "2": { id: 2, time: "1pm", interview: null },
-    "3": {
-      id: 3,
-      time: "2pm",
-      interview: { student: "Archie Cohen", interviewer: 2 }
-    },
-    "4": { id: 4, time: "3pm", interview: null },
-    "5": {
-      id: 5,
-      time: "4pm",
-      interview: { student: "Chad Takahashi", interviewer: 2 }
-    }, 
-    "6": {
-      id: 6,
-      time: "5pm",
-      interview: { student: "Archie Cohen", interviewer: 1 }
-    }
-  },
-
-  interviewers: {
-    "1": {  
-      "id": 1,
-      "name": "Sylvia Palmer",
-      "avatar": "https://i.imgur.com/LpaY82x.png"
-    },
-    "2": {
-      id: 2,
-      name: "Tori Malcolm",
-      avatar: "https://i.imgur.com/Nmx0Qxo.png"
-    }
-  }
-
-};
-
-// const state = {
-
-//   days: [
-//     {
-//       id: 1,
-//       name: "Monday",
-//       appointments: [1, 2, 3]
-//     },
-//     {
-//       id: 2,
-//       name: "Tuesday",
-//       appointments: [4, 5]
-//     }
-//   ],
-
-//   appointments: {
-//     "1": { id: 1, time: "12pm", interview: null },
-//     "2": { id: 2, time: "1pm", interview: null },
-//     "3": {
-//       id: 3,
-//       time: "2pm",
-//       interview: { student: "Archie Cohen", interviewer: 2 }
-//     },
-//     "4": { id: 4, time: "3pm", interview: null },
-//     "5": {
-//       id: 5,
-//       time: "4pm",
-//       interview: { student: "Chad Takahashi", interviewer: 2 }
-//     }
-//   },
-
-//   interviewers: {
-//     "1": {  
-//       "id": 1,
-//       "name": "Sylvia Palmer",
-//       "avatar": "https://i.imgur.com/LpaY82x.png"
-//     },
-//     "2": {
-//       id: 2,
-//       name: "Tori Malcolm",
-//       avatar: "https://i.imgur.com/Nmx0Qxo.png"
-//     }
-//   }
-
-// };
 
 export {
   getAppointmentsForDay, 

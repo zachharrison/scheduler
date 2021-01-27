@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function useVisualMode (initial, replace = false) {
+const useVisualMode = (initial, replace = false) => {
 
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
@@ -39,6 +39,6 @@ export default function useVisualMode (initial, replace = false) {
     FROM THE HISTORY ARRAY
   */
   return { mode: history.slice(-1)[0], transition, back};
-}
+};
 
-
+export default useVisualMode

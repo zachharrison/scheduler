@@ -6,7 +6,7 @@ import Appointment from 'components/Appointment'
 import useApplicationData from 'hooks/useApplicationData'
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from 'helpers/selectors'
 
-export default function Application(props) {
+const Application = (props) => {
 
   const {
     state,
@@ -65,4 +65,6 @@ export default function Application(props) {
       </section>
     </main>
   );
-}
+};
+
+export default Application

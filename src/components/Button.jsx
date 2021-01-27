@@ -3,7 +3,7 @@ import "components/Button.scss";
 import { action } from "@storybook/addon-actions/dist/preview";
 import classNames from 'classnames';
 
-export default function Button(props) {
+const Button = (props) => {
   
   const buttonClass = classNames("button", {
     "button--confirm": props.confirm,
@@ -19,4 +19,6 @@ export default function Button(props) {
       {props.children}
     </button>
   );
-}
+};
+
+export default Button

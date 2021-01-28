@@ -27,3 +27,6 @@ npm run storybook
 - A user can create, read, update, and delete appointments from the user interface.
 - When a user adds an interview they can type their name and select an interviewer from a given list of available staff.
 - Data is persisted to the database once an appointment is saved successfully.
+
+## Screenshots
+!["Screenshot of the home page."](./public/images/screenshot.png)
